@@ -1,0 +1,9 @@
+{% extends "home.html" %}
+
+{% block download %}
+    <form method="POST" action="{% url 'downloadPDB' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">download pdb</button>
+    </form>
+{% endblock download %}

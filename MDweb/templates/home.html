@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>Welcome to MD Web Home</h1>
+    <div>
+        <form enctype="multipart/form-data" action="{% url "upload" %}" method="post">
+        {% csrf_token %}
+        <input type="file" name="myfile" id="uploadedFile">
+        <input type="submit" value="upload"/>
+        </form>
+    </div>
+    <div>
+        <form method="POST" action="{% url 'downloadPDB' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">download pdb</button>
+        </form>
+    </div>
+
+</body>
+</html>
